@@ -44,26 +44,6 @@ public class InfoParser extends EvalFunc<Tuple> {
 		}
 	}
 
-	// this cause null in the schema
-	// como
-	// log_udf: {null::fechaLog: chararray,null::Sistema:
-	// chararray,null::arquirectura: chararray,null::fecha: chararray}
-
-	public Schema outputSchema22(Schema input) {
-		try {
-			Schema s = new Schema();
-			s.add(new Schema.FieldSchema("fechaLog", DataType.CHARARRAY));
-
-			s.add(new Schema.FieldSchema("Sistema", DataType.CHARARRAY));
-			s.add(new Schema.FieldSchema("arquirectura", DataType.CHARARRAY));
-			s.add(new Schema.FieldSchema("fecha", DataType.CHARARRAY));
-
-			return s;
-		} catch (Exception e) {
-			// devolvemos null para que no pare
-			return null;
-		}
-	}
 
 	// return new Schema(new
 	// Schema.FieldSchema(getSchemaName(this.getClass().getName().toLowerCase(),
@@ -87,7 +67,7 @@ public class InfoParser extends EvalFunc<Tuple> {
 			// chararray,com.utad.master.bigdata.pig.udf.parsers.infoparser_line_9::fecha:
 			// chararray}
 
-			// Cone sto conseguimos este esquema
+			// Cone esto conseguimos este esquema
 
 			return new Schema(new Schema.FieldSchema(getSchemaName(
 					"infoParser", input), s,
