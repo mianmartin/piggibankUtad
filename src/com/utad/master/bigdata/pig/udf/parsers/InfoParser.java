@@ -9,7 +9,9 @@ import org.apache.pig.data.Tuple;
 import org.apache.pig.data.TupleFactory;
 import org.apache.pig.impl.logicalLayer.schema.Schema;
 
-//DEvuelve una tupla 
+//Devuelve una tupla nueva tupla con un primer campo
+//de fecha de cada una de las que lee y añadiendo datos
+//del sistema a cada una de ellas
 
 public class InfoParser extends EvalFunc<Tuple> {
 	// El metodo principal.
@@ -57,15 +59,7 @@ public class InfoParser extends EvalFunc<Tuple> {
 			s.add(new Schema.FieldSchema("Sistema", DataType.CHARARRAY));
 			s.add(new Schema.FieldSchema("arquirectura", DataType.CHARARRAY));
 			s.add(new Schema.FieldSchema("fecha", DataType.CHARARRAY));
-			// return new Schema(new Schema.FieldSchema(getSchemaName(this
-			// .getClass().getName().toLowerCase(), input), s,
-			// DataType.TUPLE));
-			// log_udf:
-			// {com.utad.master.bigdata.pig.udf.parsers.infoparser_line_9::fechaLog:
-			// chararray,com.utad.master.bigdata.pig.udf.parsers.infoparser_line_9::Sistema:
-			// chararray,com.utad.master.bigdata.pig.udf.parsers.infoparser_line_9::arquirectura:
-			// chararray,com.utad.master.bigdata.pig.udf.parsers.infoparser_line_9::fecha:
-			// chararray}
+
 
 			// Cone esto conseguimos este esquema
 
